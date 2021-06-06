@@ -90,10 +90,15 @@
       {
         "quotes_of_the_day":"Try not to become a man of success, but rather become a man of value."
       },
+      
+    ],
+    
+    "quotes_last": [
       {
         "quotes_of_the_day":"One man with courage makes a majority."
       }
-    ],
+     ],  
+    
     "companies":[
         {
             "id":"1",
