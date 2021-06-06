@@ -1,35 +1,3 @@
-Skip to content
-Why GitHub? 
-Team
-Enterprise
-Explore 
-Marketplace
-Pricing 
-Search
-
-Sign in
-Sign up
-animeshroydev
-/
-SampleJSONPlaceholder
-06
-Code
-Issues
-Pull requests
-3
-Actions
-Projects
-Wiki
-Security
-Insights
-SampleJSONPlaceholder/db.json
-@animeshroydev
-animeshroydev first commit
-Latest commit b11d5d6 on Apr 21, 2020
- History
- 1 contributor
-88 lines (88 sloc)  2.96 KB
-  
 {
     "users": [
         {
