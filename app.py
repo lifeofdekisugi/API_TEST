@@ -1,17 +1,14 @@
 from distutils.log import debug
 from email.policy import default
-import json
+from logging import PlaceHolder
 from operator import mod
 from pickle import GET
 from pyexpat import model
-from turtle import title
 from urllib import response
 from flask import Flask, jsonify, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from datetime import datetime
-
-from sqlalchemy import JSON, desc, false, null
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
@@ -28,7 +25,7 @@ class Todo(db.Model):
     def __repr__(self) -> str:
         return f"{self.sno} - {self.title}"
 
-@app.route("/", methods=['POST'])
+@app.route("/", methods=['GET' ,'POST'])
 def hello_world():
 
     if request.method == 'POST':
@@ -42,6 +39,7 @@ def hello_world():
     allTodo = Todo.query.all()
 
     return render_template('index.html', allTodo=allTodo)
+    
 
 @app.route('/addtodo', methods=['GET', 'POST'])
 def addNewTodo():
@@ -59,10 +57,7 @@ def addNewTodo():
     except Exception:
         return jsonify({"response " : "error"}) 
 
-@app.route('/update')
-def update():
 
-    return "This is update page"
 
 @app.route('/delete/<int:sno>')
 def deleteFunction(sno):
@@ -101,7 +96,19 @@ def showTodo(sno):
     todoSchema = allTodoSchema()
     output = todoSchema.dump(singleTodo)
 
-    return jsonify({'allTodo ' : output})    
+    return jsonify({'todo ' : output})    
+
+
+@app.route('/update/<int:sno>')
+def update(sno):
+    singleTodo = Todo.query.filter_by(sno=sno).first()
+    todoSchema = allTodoSchema()
+    output = todoSchema.dump(singleTodo)
+
+
+    return jsonify({'todo ' : output})    
+
+    #return render_template('update.html')
 
 @app.route('/learnpost', methods=['GET','POST'])
 def learnpost():
@@ -115,4 +122,4 @@ def learnpost():
 
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(debug=True, host='0.0.0.0') 

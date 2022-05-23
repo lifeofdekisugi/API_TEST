@@ -10,24 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Todo API</title>
 </head>
 
 <body>
 
-
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
-    </ul>
-
-
     <div class="container">
-      <h1>Add a Todo</h1>
+      <center><h1 style="padding-top: 30px;">Add a Todo</h1></center>
         <form action="/" method="post">
             <div class="mb-3">
                 <label for="todoTitle" class="form-label">Title</label>
@@ -63,7 +52,7 @@
                 <td>{{todo.date}}</td>
                 <td>
                   
-                  <a href="/update/{{todo.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</a>
+                  <a href="/update/{{todo.sno}}" type="button" class="btn btn-outline-dark btn-sm disabled mx-1">Update</a>
                   <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
                 
                 </td>
@@ -73,6 +62,20 @@
             </tbody>
           </table>
 
+    </div>
+
+    <div class="container">
+      <center><h2 style="padding-top:25px ;">All API List</h2>
+      <ul class="list-group">
+        <li class="list-group-item">Add Todo API  : <a href="https://todo-shahirislam.herokuapp.com/addtodo">Method : POST | | Body --> form-data --> (title, desc) </a> </li>
+        <li class="list-group-item">View All Todo API  : <a href="https://todo-shahirislam.herokuapp.com/showalltodo">Method : GET</a></li>
+        <li class="list-group-item">View Single Todo  : <a href="https://todo-shahirislam.herokuapp.com/showtodo/2">Method : GET | Add todo serial number (sno) </a></li>
+        <li class="list-group-item">Delete Todo API  : <a href="https://todo-shahirislam.herokuapp.com/delete/2">Method : GET | Add todo serial number (sno)</a></li>
+        <li class="list-group-item disabled" aria-disabled="true">Update Todo</li>
+        <li class="list-group-item disabled" aria-disabled="true">Sign Up</li>
+        <li class="list-group-item disabled" aria-disabled="true">Login</li>
+      </ul>
+    </center>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
@@ -87,6 +90,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+
+    <center><h3 style="padding-top: 100px;">This API is Developed by <a href="https://github.com/lifeofdekisugi">Shahir Islam</a></h1></center>
+
 </body>
 
 </html>
